@@ -7,7 +7,6 @@ const Usuario = () => {
 	//Le o arquivo
 	const readFile = () => {
 		let data = fs.readFileSync(file);
-
 		return JSON.parse(data);
 	}
 
