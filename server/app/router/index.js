@@ -8,5 +8,6 @@ app.get("/", (req, res) => {
 
 app.get("/usuarios", Usuario.findAll);
 app.get("/usuarios/:id", Usuario.findById);
+app.post("/usuarios/insert", Usuario.insert);
 
 module.exports = app;
