@@ -1,4 +1,5 @@
 const fs = require("fs");
+const bcrypt = require("bcryptjs");
 
 const Usuario = () => {
 		
@@ -11,23 +12,22 @@ const Usuario = () => {
 	}
 
 
-	const writeFile = (data, msg) => {
+	const writeFile = (data) => {
 
 		fs.writeFile(file, data, (err) => {
 
 			if (err) {
     			console.log(err);
-  			} else {  				
-	    		console.log(msg);
-	    		return true;
-  			}
+    			return false;
+  			} 
 		})
+  		return true;
 	}
 
 	const findAll = (req, res) => {
 		
 		let data = readFile();	
-		res.send(data);
+		res.json(data);
 	}
 
 	const findById = (req, res) => {
@@ -38,8 +38,8 @@ const Usuario = () => {
 		data = data.filter(user => {
 			return user.id === id;
 		});
-
-		res.send(data);
+		
+		res.json(data);
 	}
 
 	const insert = (req, res) => {
@@ -52,7 +52,11 @@ const Usuario = () => {
 
 		data.push(body);
 		
-		writeFile(JSON.stringify(data), "Usuario cadastrado com sucesso!");
+		if(writeFile(JSON.stringify(data))){
+			res.status(200).send("Usuario cadastrado com sucesso!");
+		}else{
+			res.status(500).send("Erro ao cadastrar o usuario");
+		}
 		
 	}
 
@@ -65,7 +69,11 @@ const Usuario = () => {
 			return item.id != id;
 		});
 
-		writeFile(JSON.stringify(data), "Usuario deletado com sucesso!");	
+		if(writeFile(JSON.stringify(data))){
+			res.status(200).send("Usuario removido com sucesso!");
+		}else{
+			res.status(500).send("Erro ao remover o usuario");
+		}	
 
 	}
 

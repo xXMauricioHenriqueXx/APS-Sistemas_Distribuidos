@@ -1,14 +1,54 @@
+<!DOCTYPE html>
 <html>
-	<<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="login">
-				</div>	
-			</div>
+<head>
+	<title>Cliente</title>	
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<style>
+		form {
+			width: 250px;
+			margin: 0px auto;
+		}
+	</style>
+</head>
+
+<body>
+	<form id="cadastro-form" method="post" action="">
+		<div class="form-group">
+			<legend>Cadastro de usuario</legend>
+			<label>Nome</label>			
+			<input type="text" name="nome" class="form-control">
 		</div>
-	</body>
+		<div class="form-group">
+			<label>E-mail</label>			
+			<input type="email" name="email" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Senha</label>			
+			<input type="password" name="senha" class="form-control">
+		</div>
+		<div class="form-group">
+			<input type="submit" id="cadastrar" class="btn btn-primary" value="Cadastrar">			
+		</div>
+	</form>
+
+	<script type="text/javascript">
+		$("#cadastrar").click(()=> {
+			let nome = $("input[name=nome]").val();
+			let email = $("input[name=nome]").val();
+			let senha = $("input[name=senha]").val();
+
+			const data = {
+				"nome": nome,
+				"email": email,
+				"senha": senha
+			}
+
+			$.post('http://localhost:3002/usuarios/insert', data, (res) => {
+				console.log(res);
+			});
+		})
+
+	</script>
+</body>
 </html>
