@@ -77,11 +77,26 @@ const Usuario = () => {
 
 	}
 
+	const auth = (req, res) => {
+		let data = readFile();
+
+		let userData = data.filter((user) => {
+			return user.email == req.body.email && user.senha == req.body.senha;			
+		});
+
+		if(userData){
+			res.status(200).send({email: userData.email, senha: userData.senha, logged: true});
+		}else{
+			res.status(401).json({msg:"Usuario não cadastrado", logged: false})
+		}
+	}
+
 	return {
 		findAll,
 		findById,
 		insert,
-		remove
+		remove,
+		auth
 	}
 }
 
