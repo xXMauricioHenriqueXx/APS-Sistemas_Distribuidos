@@ -1,0 +1,11 @@
+form {
+	width: 350px;
+	margin: 100px auto;
+	border: 1px solid #F0F0F0;
+	padding: 30px;
+	border-radius: 50px;
+}
+a {
+	float: right;
+	margin-top: 10px;
+}

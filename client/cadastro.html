@@ -4,19 +4,8 @@
 	<title>Cliente</title>	
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<style>
-		form {
-			width: 350px;
-			margin: 100px auto;
-			border: 1px solid #F0F0F0;
-			padding: 30px;
-			border-radius: 50px;
-		}
-		a {
-			float: right;
-			margin-top: 10px;
-		}
-	</style>
+	<link rel="stylesheet" href="public/css/cadastro.css">	
+	<script type="text/javascript" src="./public/js/cadastro.js"></script>
 </head>
 
 <body>
@@ -41,21 +30,7 @@
 	</form>
 
 	<script type="text/javascript">
-		$("#cadastrar").click(()=> {
-			let nome = $("input[name=nome]").val();
-			let email = $("input[name=email]").val();
-			let senha = $("input[name=senha]").val();
-
-			const data = {
-				"nome": nome,
-				"email": email,
-				"senha": senha
-			}
-
-			$.post('http://localhost:3002/usuarios/insert', data, (res) => {
-				console.log(res);
-			});
-		})
+		
 
 	</script>
 </body>

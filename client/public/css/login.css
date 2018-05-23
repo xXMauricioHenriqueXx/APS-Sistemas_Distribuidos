@@ -1,0 +1,25 @@
+form {
+	width: 350px;
+	border: 1px solid #F0F0F0;
+	padding: 30px;
+	border-radius: 50px;
+	margin: 50px auto;
+}
+.section-login {
+	width: 100%;
+	margin: 50px auto;			
+	
+}
+.section-login .error-section {
+	text-align: center;
+	margin: 50px auto;
+}
+a {
+	float: right;
+	margin-top: 10px;
+}
+.header {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+}
