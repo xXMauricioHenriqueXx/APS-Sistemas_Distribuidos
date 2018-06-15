@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cliente</title>	
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/atualizacao.css">
+	<script type="text/javascript" src="./js/atualizacao.js"></script>
+</head>
+
+<body onload="verify()">
+	<div class="row">
+		<header>
+			<div class="logo">
+				<a href="http://localhost:3003"><span class="logo-item">APS</span></a>
+			</div>
+			<div class="logout-session">
+				<a onclick="logout()">Logout</a>
+			</div>
+		</header>
+		
+
+		<section class="container">
+			<h3>Atualizar</h3>
+			<form action="" method="put" id="atualizacao">
+				<div class="form-group">
+					<labe>E-mail</labe>
+					<input type="email" name="email" id="email" class="form-control">					
+				</div>
+				<div class="form-group">
+					<labe>Nome</labe>
+					<input type="text" name="nome" id="nome" class="form-control">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" id="button">Atualizar</button>
+				</div>
+			</form>	
+		</section>
+		<footer></footer>
+	</div>
+</body>
+</html>

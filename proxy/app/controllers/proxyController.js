@@ -86,6 +86,31 @@ const proxyController = () => {
 		}
 	}
 
+	const findById =  async(req, res) => {
+  
+		let server = serverList[0] + req.url;		
+		let error = false;
+		options.url = server;
+		options.method = req.method;  
+		options.form = req.params.id;
+		serverList.splice(0,1);
+
+		await requestHTTP(options, busyServer).then(result => {
+			res.send(result);
+		}).catch(err => {
+			console.log(err);
+			error = true;
+		});
+		if(error){
+			let server = serverList[0] + req.url;	
+			options.url = server;			
+			await faultManager(error, options).then(result => { 
+				res.send(result);
+			});			
+		}
+	}
+
+
 	const requestHTTP = (options, busyServer) => {
 		
 		return new Promise((resolve, reject) => {
@@ -131,7 +156,8 @@ const proxyController = () => {
 	return {
 		insert,
 		auth,
-		findAll
+		findAll,
+		findById
 	}
 }
 module.exports = proxyController;

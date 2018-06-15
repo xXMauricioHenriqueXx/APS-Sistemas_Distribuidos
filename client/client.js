@@ -19,3 +19,7 @@ app.get("/login", (req, res) => {
 app.get("/cadastro", (req, res) => {
 	res.sendFile(path.join(__dirname+'/app/public/cadastro.html'));
 });
+
+app.get("/atualizacao", (req, res) => {
+	res.sendFile(path.join(__dirname+'/app/public/atualizacao.html'));
+});

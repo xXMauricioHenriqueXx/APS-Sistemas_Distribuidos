@@ -34,7 +34,7 @@ const Usuario = () => {
 		
 		let data = readFile();
 		const id = req.params.id;
-
+		console.log(idw);
 		data = data.filter(user => {
 			return user.id === id;
 		});
