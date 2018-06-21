@@ -45,7 +45,6 @@ const proxyController = () => {
 		serverList.splice(0,1);
 
 		await requestHTTP(options, busyServer).then(result => {
-			console.log(result);
 			res.send(result);
 		}).catch(err => {
 			console.log(err);
@@ -64,7 +63,7 @@ const proxyController = () => {
 	}
 
 	const findAll =  async(req, res) => {
-  
+  		console.log(req.query);
 		let server = serverList[0] + req.url;		
 		let error = false;
 		options.url = server;

@@ -14,7 +14,13 @@ const verify = () => {
 }
 	
 const getUsers = () => {
-	$.get("http://localhost:3002/usuarios", (res) => {
+	let token = localStorage.getItem("token");
+	
+	let data = {
+		token: token
+	}
+	
+	$.get("http://localhost:3002/usuarios", data,(res) => {
 		let listSnippet = `<ul>`;
 
 		res = JSON.parse(res);

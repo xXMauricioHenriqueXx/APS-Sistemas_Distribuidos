@@ -11,10 +11,12 @@ $(document).ready(() => {
 
 		$.post("http://localhost:3002/auth", data, (res) => {
 			res = JSON.parse(res);
-			
+			console.log(res);
 			if(res.logged){
 				localStorage.setItem("nome", res.nome);
 				localStorage.setItem("id", res.id);
+				localStorage.setItem("token", res.token);
+
 				window.location.href = "http://localhost:3003/";
 			}else {
 				let errorSnippet = `<span class="alert alert-danger">${res.msg}</span>`;

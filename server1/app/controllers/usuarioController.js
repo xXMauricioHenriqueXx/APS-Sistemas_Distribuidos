@@ -1,5 +1,7 @@
 const fs = require("fs");
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken');
+const SECRET = "jTZx98b52vgFLçcr$#2";
 
 const Usuario = () => {
 		
@@ -99,12 +101,19 @@ const Usuario = () => {
 		});
 		
 		if(userData.length){
-          	let reponseData = { email: userData[0].email, nome: userData[0].nome, id: userData[0].id, logged: true }
+
+			
+			var token = jwt.sign({ email: userData[0].email, id: userData[0].id }, SECRET,{
+				expiresIn: 84600
+			});		
+			
+          	let reponseData = { email: userData[0].email, nome: userData[0].nome, id: userData[0].id, token: token, logged: true }
 		
 			res.status(200).json(reponseData);
 		}else{
 			res.status(401).json({msg:"Usuario não cadastrado", logged: false})
 		}
+		
 	}
 
 	return {
